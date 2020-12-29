@@ -1,21 +1,44 @@
-# umall__admin
+## 菜单管理
 
-> A Vue.js project
+ok
 
-## Build Setup
+## 角色管理
 
-``` bash
-# install dependencies
-npm install
+ok
 
-# serve with hot reload at localhost:8080
-npm run dev
+## 管理员管理
 
-# build for production with minification
-npm run build
+ok
 
-# build for production and view the bundle analyzer report
-npm run build --report
-```
+## 商品分类
 
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+ok
+
+## 商品规格
+
+ok
+
+# 商品管理
+
+*还没写*==还没写==还没写
+
+## 会员管理
+
+ok
+
+## 轮播图管理
+
+ok
+
+## 秒杀活动
+
+还没写==还没写==还没写
+
+## 首页
+
+还没写==还没写==还没写
+
+## 权限设置
+
+还没写==还没写==还没写
+

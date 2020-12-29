@@ -60,6 +60,7 @@ export default {
   methods: {
     ...mapActions({
       reqList: "specs/reqList",
+      reqTotal: "specs/reqTotal",
     }),
     addAttr() {
       this.attrsArr.push({ value: "" });
@@ -90,6 +91,7 @@ export default {
           this.empty();
           //刷新列表
           this.reqList();
+          this.reqTotal()
         }
       });
     },

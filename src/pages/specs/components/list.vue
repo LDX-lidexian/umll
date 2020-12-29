@@ -16,7 +16,7 @@
       </el-table-column>
       <el-table-column label="状态">
         <template slot-scope="scope">
-          <el-button type="primary" v-if="scope.row.status==1">启用</el-button>
+          <el-button type="primary" v-if="scope.row.status===1">启用</el-button>
           <el-button type="info" v-else>禁用</el-button>
         </template>
       </el-table-column>
@@ -28,6 +28,13 @@
       </el-table-column>
     </el-table>
     <!-- 分页 -->
+    <el-pagination
+      background
+      layout="prev, pager, next"
+      :total="total"
+      :page-size="size"
+      @current-change="changePage"
+    ></el-pagination>
   </div>
 </template>
 
@@ -36,24 +43,29 @@ import { mapGetters, mapActions } from "vuex";
 import { successalert } from "../../../utils/alert";
 import { reqspecsDel, reqspecsUpdate } from "../../../utils/http";
 export default {
-  components: ["info"],
+  props: ["info"],
   data() {
     return {};
   },
   computed: {
     ...mapGetters({
       list: "specs/list",
+      total: "specs/total",
+      size: "specs/size",
     }),
   },
   methods: {
     ...mapActions({
       reqList: "specs/reqList",
+      reqTotal: "specs/reqTotal",
+      changePage: "specs/changePage",
     }),
     del(id) {
       reqspecsDel({ id: id }).then((res) => {
         if (res.data.code == 200) {
           successalert(res.data.msg);
           this.reqList();
+          this.reqTotal()
         }
       });
     },
@@ -63,6 +75,7 @@ export default {
   },
   mounted() {
     this.reqList();
+    this.reqTotal();
   },
 };
 </script>
