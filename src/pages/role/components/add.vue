@@ -118,11 +118,17 @@ export default {
     },
     update() {
       // console.log(this.user, "222222222222");
-      this.getCheckedKeys()
+      this.getCheckedKeys();
       // console.log(this.user, "3333333333");
       reqRoleUpdate(this.user).then((res) => {
         if (res.data.code == 200) {
           successalert(res.data.msg);
+          //如果修改的角色，是当前用户所属的角色，就需要退出登录，重新登录
+          if (this.user.id == this.userInfo.roleid) {
+            this.changeUser({});
+            this.$router.push("/login");
+            return;
+          }
           this.cancel();
           this.empty();
           this.$emit("init");
@@ -130,10 +136,10 @@ export default {
       });
     },
     resetChecked() {
-    this.$refs.tree.setCheckedKeys(this.user.menus);
+      this.$refs.tree.setCheckedKeys(this.user.menus);
+    },
   },
-  },
-  
+
   mounted() {
     reqMenulist().then((res) => {
       // console.log(res,"圣诞快乐啊啊啊啊啊啊啊啊啊啊啊");

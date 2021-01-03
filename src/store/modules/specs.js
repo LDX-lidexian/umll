@@ -35,8 +35,6 @@ let getters={
 let actions={
     //获取list的action
     reqList(context,bool){
-        //商品规格是要分页的，商品管理，是不要分页的。所以多给一个参数，bool.
-        //bool是true,就要全部；否则，就做分页
         let params=bool?{}:{page:context.state.page,size:context.state.size}
         //发请求
         reqspecslist(params).then(res=>{

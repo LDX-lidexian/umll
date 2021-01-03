@@ -5,7 +5,9 @@ Vue.use(Vuex)
 import {actions} from "./actions"
 import {state,getters,mutations} from "./mutations"
 import specs from "./modules/specs"
-
+import cate from "./modules/cate"
+import goods from "./modules/goods"
+import seckill from "./modules/seckill"
 
 export default new Vuex.Store({
     state,
@@ -13,6 +15,9 @@ export default new Vuex.Store({
     mutations,
     actions,
     modules:{
-        specs
+        specs,
+        cate,
+        goods,
+        seckill
     }
 })

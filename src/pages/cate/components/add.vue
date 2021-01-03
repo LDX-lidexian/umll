@@ -45,6 +45,7 @@
 import { reqcateAdd, reqcateDetail, reqcateUpdate } from "../../../utils/http";
 import { successalert, erroralert } from "../../../utils/alert";
 import path from "path";
+import { mapActions, mapGetters } from "vuex";
 export default {
   props: ["info", "init", "list"],
   data() {
@@ -59,6 +60,7 @@ export default {
       },
     };
   },
+
   methods: {
     changeImg(e) {
       let file = e.raw;
